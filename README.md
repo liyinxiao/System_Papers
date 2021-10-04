@@ -39,6 +39,9 @@ Scaling Uber's Real-time Market Platform
 The Paxos Algorithm
 - https://www.youtube.com/watch?v=d7nAGI_NZPk
 
+CONSOLIDATING STORAGE BACKENDS AT SCALE WITH TECTONIC FILESYSTEM
+- https://www.facebook.com/watch/?v=520707222455400
+
 ## My personal notes / ideas on papers
 
 Wormhole vs Scribe
