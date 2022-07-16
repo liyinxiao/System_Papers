@@ -70,3 +70,20 @@ BigTable
 - write append
 - Sstable
 - bloom filter
+
+Kafka
+- message queuing system with twists (could work as low-latency message queues, or log aggregator)
+- high throughput, thanks to sequential I/O, and fewer data copies / system calls
+- pull model: consumer can rewind back and re-consume data
+- pulisher-subscriber patterns
+
+Cassandra
+- consistent hashing: move nodes on the ring to adjust load
+- data model: column family
+- replication policy: next N-1 nodes on the ring
+- local persistence: commit logs, Sstable, bloom filter (similar to bigtable)
+
+Dynamo
+- consistent hashing: virtual nodes
+- data model: key-value store
+- replication policy: next N-1 nodes on the ring
