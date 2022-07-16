@@ -87,3 +87,27 @@ Dynamo
 - consistent hashing: virtual nodes
 - data model: key-value store
 - replication policy: next N-1 nodes on the ring
+
+QPS
+- web server, SQL database: 1K
+- NoSQL database (e.g. Cassandra): 10K
+- Mechached: 100K
+
+## Examples
+
+News feed (such as Facebook News Feed)
+- pull vs push
+  - fanout on write (push): news feed is generated in real-time, fetching news feed is fast
+    - store <user_id, post_id> in news feed table
+  - fanout on read (pull): no resource waste for inactive users, no hote key proble (celebrity)
+    - pull friends' posts from DB when user loads news feed
+  - hybrid: push model for most friends of the user, pull model for celebrities followed by the user
+
+Chat system (such as Messenger)
+- SQL database for user generic data
+  - thread table: primary key=(thread_id, owner_id)
+- NoSQL database for chat messages storage
+  - message table: row_key=thread_id
+- prefer websocket over polling and long polling for client-server connection
+  - chat service is stateful with persistent network connection through websocket (HTTp based servers are usually stateless)
+- Online status: pull model, pub-sub
